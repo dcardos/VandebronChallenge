@@ -20,7 +20,13 @@ public class Batch_ReparentContacts implements Database.Batchable<sObject>, Data
             }
         }
         // if more than one account has the same phone number, then the most recent created account will be the parent
-        List<Account> parentAccounts = [SELECT Phone FROM Account WHERE Phone IN :phoneToContactsMap.keySet() ORDER BY CreatedDate DESC LIMIT 50000];
+        List<Account> parentAccounts = [
+            SELECT Phone 
+            FROM Account 
+            WHERE Phone IN :phoneToContactsMap.keySet() 
+            ORDER BY CreatedDate DESC 
+            LIMIT 50000
+        ];
         List<Contact> contactsToReparent = new List<Contact>();
         for (Account parentAccount : parentAccounts) {
             for (Id contactId : phoneToContactsMap.get(parentAccount.Phone)) {
