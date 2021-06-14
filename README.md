@@ -11,6 +11,6 @@ Number field created on Account object: Digital_Dept_Contacts__c (read only)
 Trigger associated: [ContactTrigger](force-app/main/default/triggers/ContactTrigger.trigger)  
 Trigger handler: [ContactTriggerHandlerHandler](force-app/main/default/classes/ContactTriggerHandler.cls)  
 
-## item 3: Fix contacts related to the wrong Accounts
+## item 3 - Fix contacts related to the wrong Accounts
 Formula field created on Contact object: Phone_Match_Account__c (not visible)  
 Batch class created: [Batch_ReparentContacts](force-app/main/default/classes/Batch_ReparentContacts.cls)
