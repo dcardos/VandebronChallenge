@@ -18,11 +18,12 @@ private class Batch_ReparentContactsTest {
             TestDataFactory.createContact('Liu', acct1.Id, PHONE1, 'Development'),
             TestDataFactory.createContact('Korobovich', acct1.Id, PHONE2, 'Digital'),
             TestDataFactory.createContact('Grycko', null, PHONE2, 'HR'),
-            TestDataFactory.createContact('Paul', null, '0642140000', 'Management')
+            TestDataFactory.createContact('Paul', null, '0642140000', 'Management'),
+            TestDataFactory.createContact('Kim', acct2.Id, null, 'Finance')
         };
         insert contacts;
 
-        System.assertEquals(3, [SELECT COUNT() FROM Contact WHERE Phone_Match_Account__c = false], '3 contacts should have the flag for mismatching their accounts phone number as false');
+        System.assertEquals(4, [SELECT COUNT() FROM Contact WHERE Phone_Match_Account__c = false], '3 contacts should have the flag for mismatching their accounts phone number as false');
 
         Test.startTest();
         Database.executeBatch(new Batch_ReparentContacts());
@@ -31,6 +32,7 @@ private class Batch_ReparentContactsTest {
         System.assertEquals(acct2.Id, [SELECT AccountId FROM Contact WHERE Id = :contacts[1].Id].AccountId, 'This contact should have been reparented');
         System.assertEquals(acct2.Id, [SELECT AccountId FROM Contact WHERE Id = :contacts[2].Id].AccountId, 'This contact should have been reparented');
         System.assertEquals(null, [SELECT AccountId FROM Contact WHERE Id = :contacts[3].Id].AccountId, 'This contact should not have been reparented');
+        System.assertEquals(acct2.Id, [SELECT AccountId FROM Contact WHERE Id = :contacts[4].Id].AccountId, 'This contact should not have been reparented');
     }
 
     @isTest
