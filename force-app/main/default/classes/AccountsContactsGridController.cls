@@ -1,13 +1,13 @@
 public with sharing class AccountsContactsGridController {
 
     public class ParsedAccount {
-        @auraEnabled public String id { get; set; }
-        @auraEnabled public String link { get; set; }
-        @auraEnabled public String name { get; set; }
-        @auraEnabled public String phoneNumber { get; set; }
-        @auraEnabled public String address { get; set; }
-        @auraEnabled public Integer digitalContactsAmount { get; set; }
-        @auraEnabled public List<ParsedContact> contacts { get; set; }
+        @auraEnabled public String id;
+        @auraEnabled public String link;
+        @auraEnabled public String name;
+        @auraEnabled public String phoneNumber;
+        @auraEnabled public String address;
+        @auraEnabled public Integer digitalContactsAmount;
+        @auraEnabled public List<ParsedContact> contacts;
 
         public ParsedAccount(Id id, String name, String phoneNumber, Address address, Decimal digitalContactsAmount, List<ParsedContact> contacts) {
             this.id = id;
@@ -21,12 +21,12 @@ public with sharing class AccountsContactsGridController {
     }
 
     public class ParsedContact {
-        @auraEnabled public String id { get; set; }
-        @auraEnabled public String link { get; set; }
-        @auraEnabled public String name { get; set; }
-        @auraEnabled public String phoneNumber { get; set; }
-        @auraEnabled public String address { get; set; }
-        @auraEnabled public String department { get; set; }
+        @auraEnabled public String id;
+        @auraEnabled public String link;
+        @auraEnabled public String name;
+        @auraEnabled public String phoneNumber;
+        @auraEnabled public String address;
+        @auraEnabled public String department;
 
         public ParsedContact(Id id, String name, String phoneNumber, Address address, String department) {
             this.id = id;
