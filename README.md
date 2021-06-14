@@ -1,18 +1,16 @@
-# Salesforce DX Project: Next Steps
+# Vandebron Challenge
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Project developed by Danilo Cardoso for the technical interview at Vandebron
 
-## How Do You Plan to Deploy Your Changes?
+## item 1 - Sales agents would like to see Accounts that they own and related Contacts 
+LWC component created using grid data table: [AccountsContactsGrid](force-app/main/default/lwc/accountsContactsGrid/)  
+Component added in the Sales app home page
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## item 2 - number of related contacts belonging to the Digital department in an Account 
+Number field created on Account object: Digital_Dept_Contacts__c (read only)  
+Trigger associated: [ContactTrigger](force-app/main/default/triggers/ContactTrigger.trigger)  
+Trigger handler: [ContactTriggerHandlerHandler](force-app/main/default/classes/ContactTriggerHandler.cls)  
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## item 3: Fix contacts related to the wrong Accounts
+Formula field created on Contact object: Phone_Match_Account__c (not visible)  
+Batch class created: [Batch_ReparentContacts](force-app/main/default/classes/Batch_ReparentContacts.cls)
