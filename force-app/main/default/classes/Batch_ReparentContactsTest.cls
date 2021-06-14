@@ -11,7 +11,7 @@ private class Batch_ReparentContactsTest {
     }
 
     @isTest
-    private static void Batch_ReparentContactsLogicTest() {
+    private static void batch_ReparentContactsLogicalTest() {
         Account acct1 = [SELECT Id FROM Account WHERE Phone = :PHONE1];
         Account acct2 = [SELECT Id FROM Account WHERE Phone = :PHONE2];
         List<Contact> contacts = new List<Contact>{
@@ -34,7 +34,7 @@ private class Batch_ReparentContactsTest {
     }
 
     @isTest
-    private static void Batch_ReparentContactsLoadTest() {
+    private static void batch_ReparentContactsLoadTest() {
         List<Contact> contactsOk = new List<Contact>();
         List<Contact> contactsMissParented = new List<Contact>();
         Id acct1Id = [SELECT Id FROM Account WHERE Phone = :PHONE1].Id;
