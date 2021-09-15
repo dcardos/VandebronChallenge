@@ -9,10 +9,10 @@ jobs:
           name: Install Dependencies
           command: . build/install.sh
       - run:
-          name: Login to DevInteg
+          name: Login to Dev
           command: . build/setup-dev.sh
       - run:
-          name: Deploy Components & Run Local Tests
+          name: Run Local Tests
           command: . build/deploy-dev.sh
   deploy-uat:
     docker:
@@ -23,10 +23,10 @@ jobs:
           name: Install Dependencies
           command: . build/install.sh
       - run:
-          name: Login to Qual
-          command: . build/setup-uat.sh
+          name: Login to dev
+          command: . build/setup-dev.sh
       - run:
-          name: Deploy to Qual
+          name: Deploy to dev
           command: . build/deploy-uat.sh
 workflows:
   version: 2
@@ -36,9 +36,10 @@ workflows:
           filters:
             branches:
               ignore:
+                - braveOrg
                 - master
       - deploy-uat:
           filters:
             branches:
               only:
-                - master
+                - braveOrg

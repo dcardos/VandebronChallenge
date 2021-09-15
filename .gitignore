@@ -36,3 +36,6 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+# Certification key 
+server.crt
