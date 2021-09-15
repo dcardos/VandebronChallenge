@@ -24,7 +24,7 @@ public class Batch_ReparentContacts implements Database.Batchable<sObject>, Data
             SELECT Phone 
             FROM Account 
             WHERE Phone IN :phoneToContactsMap.keySet() 
-            ORDER BY CreatedDate DESC 
+            ORDER BY CreatedDate ASC 
             LIMIT 50000
         ];
         List<Contact> contactsToReparent = new List<Contact>();
