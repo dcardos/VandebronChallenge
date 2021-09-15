@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digital_Dept_Contacts__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>Number of related contacts in the digital department</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of related contacts in the digital department</inlineHelpText>
+    <label>Digital Dept Contacts</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>
